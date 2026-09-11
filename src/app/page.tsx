@@ -1,138 +1,71 @@
 "use client";
-
 import React from 'react';
-import Link from 'next/link';
-import { Cpu, Globe, Smartphone, ChevronRight, Menu } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-blue-500 selection:text-white overflow-hidden relative">
+    <div className="px-6 max-w-7xl mx-auto pb-32">
       
-      {/* Background glow effects */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] opacity-30 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-600/20 via-purple-900/10 to-transparent blur-3xl"></div>
+      {/* Background Orbs (No boxes, just light) */}
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none -z-10">
+        <div className="absolute top-[10%] left-[20%] w-96 h-96 bg-purple-600/10 rounded-full blur-[150px] mix-blend-screen"></div>
+        <div className="absolute top-[40%] right-[10%] w-[40rem] h-[40rem] bg-blue-600/10 rounded-full blur-[150px] mix-blend-screen"></div>
       </div>
 
-      {/* Navbar */}
-      <nav className="flex items-center justify-between p-6 border-b border-white/10 backdrop-blur-md fixed w-full z-50 top-0 bg-black/50">
-        <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 tracking-tighter">
-          NEWRISE TECHNOSYS
-        </div>
-        <div className="hidden md:flex gap-8 text-sm font-medium text-gray-300">
-          <Link href="/" className="hover:text-white transition-colors">Home</Link>
-          <Link href="/about" className="hover:text-white transition-colors">About</Link>
-          <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-          <Link href="/careers" className="hover:text-white transition-colors">Careers</Link>
-          <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
-        </div>
-        <div className="hidden md:flex items-center gap-4">
-          <Link href="/admin" className="text-xs px-4 py-2 rounded-full border border-white/20 hover:bg-white hover:text-black transition-all">
-            Admin Panel
-          </Link>
-        </div>
-        <button className="md:hidden text-white">
-          <Menu size={24} />
-        </button>
-      </nav>
-
-      {/* Hero Section */}
-      <main className="pt-40 pb-20 px-6 max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold mb-8 tracking-wide"
+      {/* Hero Section - Open Typography */}
+      <main className="pt-32 pb-40 flex flex-col items-start text-left">
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
+          className="text-purple-400 font-medium tracking-wide mb-6 uppercase text-sm"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-          </span>
-          FULL AI-POWERED IT COMPANY
-        </motion.div>
+          Next-Generation Artificial Intelligence
+        </motion.p>
         
         <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 leading-tight"
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
+          className="text-6xl md:text-[7rem] font-light tracking-tighter mb-10 leading-[1.05]"
         >
-          Building the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-indigo-600">Future</span> of <br/> Intelligence
+          Intelligence, <br/>
+          <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
+            Engineered.
+          </span>
         </motion.h1>
         
         <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-gray-400 max-w-2xl text-lg md:text-xl mb-12 leading-relaxed"
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
+          className="text-gray-400 max-w-2xl text-xl md:text-2xl font-light leading-relaxed"
         >
-          Newrise Technosys specializes in cutting-edge Artificial Intelligence, custom Software Development, and next-generation Mobile Applications for global enterprises.
+          We craft intelligent ecosystems that learn, adapt, and scale. No boundaries, just pure innovation. Welcome to the new era of computing.
         </motion.p>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4"
-        >
-          <Link href="/contact" className="px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
-            Start a Project <ChevronRight size={18} />
-          </Link>
-          <Link href="/services" className="px-8 py-4 bg-transparent border border-gray-700 text-white font-semibold rounded-lg hover:border-gray-500 transition-all flex items-center justify-center">
-            Explore Services
-          </Link>
-        </motion.div>
       </main>
 
-      {/* Feature Grid */}
-      <section className="py-24 px-6 max-w-7xl mx-auto grid md:grid-cols-3 gap-8 relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="p-8 rounded-2xl bg-white/[0.02] border border-white/10 hover:bg-white/[0.05] transition-colors group cursor-pointer"
-        >
-          <Cpu className="w-12 h-12 text-blue-400 mb-6 group-hover:scale-110 transition-transform" />
-          <h3 className="text-2xl font-bold mb-3">AI & Machine Learning</h3>
-          <p className="text-gray-400 text-sm leading-relaxed">
-            We develop intelligent systems that learn, adapt, and automate complex business processes to give you a competitive edge.
-          </p>
-        </motion.div>
+      {/* Services List - Open text layout, NO BOXES */}
+      <section className="py-20 flex flex-col gap-24">
         
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="p-8 rounded-2xl bg-white/[0.02] border border-white/10 hover:bg-white/[0.05] transition-colors group cursor-pointer"
-        >
-          <Globe className="w-12 h-12 text-purple-400 mb-6 group-hover:scale-110 transition-transform" />
-          <h3 className="text-2xl font-bold mb-3">Custom Web Platforms</h3>
-          <p className="text-gray-400 text-sm leading-relaxed">
-            Scalable, highly secure, and blazing fast web applications built with modern stacks tailored exactly to your enterprise needs.
-          </p>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-light mb-6 tracking-tight">Enterprise AI Models</h2>
+            <p className="text-gray-400 text-lg leading-relaxed">Custom-trained neural networks and LLM integrations designed specifically for your proprietary data architecture. We build AI that understands your business at its core.</p>
+          </div>
+          <div className="h-px w-full bg-gradient-to-r from-purple-500/50 to-transparent md:hidden"></div>
         </motion.div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="p-8 rounded-2xl bg-white/[0.02] border border-white/10 hover:bg-white/[0.05] transition-colors group cursor-pointer"
-        >
-          <Smartphone className="w-12 h-12 text-indigo-400 mb-6 group-hover:scale-110 transition-transform" />
-          <h3 className="text-2xl font-bold mb-3">Mobile Applications</h3>
-          <p className="text-gray-400 text-sm leading-relaxed">
-            Native and cross-platform mobile experiences that combine beautiful UI with powerful on-device AI capabilities.
-          </p>
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="order-2 md:order-1 h-px w-full bg-gradient-to-l from-blue-500/50 to-transparent md:bg-transparent"></div>
+          <div className="order-1 md:order-2">
+            <h2 className="text-4xl md:text-5xl font-light mb-6 tracking-tight">Cloud Native Scale</h2>
+            <p className="text-gray-400 text-lg leading-relaxed">Serverless architectures that scale infinitely from day one. Blazing fast web platforms engineered with Next.js, Spring Boot, and robust microservices.</p>
+          </div>
         </motion.div>
+
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-light mb-6 tracking-tight">Smart Mobile</h2>
+            <p className="text-gray-400 text-lg leading-relaxed">On-device machine learning for lightning-fast mobile experiences. We bring heavy AI compute power directly to the user's pocket without sacrificing battery life.</p>
+          </div>
+        </motion.div>
+
       </section>
-      
-      {/* Footer minimal */}
-      <footer className="py-8 text-center text-gray-600 text-sm border-t border-white/10">
-        &copy; {new Date().getFullYear()} Newrise Technosys. All rights reserved.
-      </footer>
     </div>
   );
 }

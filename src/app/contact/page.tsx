@@ -26,32 +26,50 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-20 px-6 max-w-3xl mx-auto">
-      <h1 className="text-4xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Contact Us</h1>
-      <p className="text-gray-400 mb-10 text-center">Ready to start your next AI project? Drop us a message.</p>
+    <div className="px-6 max-w-4xl mx-auto pt-20 pb-32">
+      <h1 className="text-6xl md:text-8xl font-light tracking-tighter mb-6">
+        Let's <span className="font-bold">Talk</span>
+      </h1>
+      <p className="text-gray-400 text-xl font-light mb-20">Ready to start your next AI project? Drop us a message.</p>
       
-      <form className="space-y-6 bg-white/[0.02] p-8 rounded-2xl border border-white/10" onSubmit={handleSubmit}>
-        <div className="grid md:grid-cols-2 gap-6">
+      {/* Form without boxes - clean minimalist inputs */}
+      <form className="space-y-12" onSubmit={handleSubmit}>
+        <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <label className="block text-sm font-medium mb-2 text-gray-300">Your Name</label>
-            <input type="text" required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500" placeholder="John Doe" />
+            <input 
+              type="text" required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} 
+              className="w-full bg-transparent border-b border-white/20 py-4 text-white text-lg font-light focus:outline-none focus:border-purple-500 transition-colors placeholder:text-gray-600" 
+              placeholder="Your Name" 
+            />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2 text-gray-300">Email Address</label>
-            <input type="email" required value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} className="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500" placeholder="john@example.com" />
+            <input 
+              type="email" required value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} 
+              className="w-full bg-transparent border-b border-white/20 py-4 text-white text-lg font-light focus:outline-none focus:border-purple-500 transition-colors placeholder:text-gray-600" 
+              placeholder="Email Address" 
+            />
           </div>
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2 text-gray-300">Subject</label>
-          <input type="text" required value={formData.subject} onChange={e => setFormData({...formData, subject: e.target.value})} className="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500" placeholder="AI Project Inquiry" />
+          <input 
+            type="text" required value={formData.subject} onChange={e => setFormData({...formData, subject: e.target.value})} 
+            className="w-full bg-transparent border-b border-white/20 py-4 text-white text-lg font-light focus:outline-none focus:border-purple-500 transition-colors placeholder:text-gray-600" 
+            placeholder="Subject / Project Inquiry" 
+          />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-2 text-gray-300">Message</label>
-          <textarea rows={5} required value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} className="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500" placeholder="Tell us about your requirements..."></textarea>
+          <textarea 
+            rows={4} required value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} 
+            className="w-full bg-transparent border-b border-white/20 py-4 text-white text-lg font-light focus:outline-none focus:border-purple-500 transition-colors placeholder:text-gray-600 resize-none" 
+            placeholder="Tell us about your requirements..."
+          ></textarea>
         </div>
-        <button type="submit" className="w-full py-4 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold transition-colors">
-          {status || 'Send Message'}
-        </button>
+        
+        <div className="flex items-center gap-6 pt-4">
+          <button type="submit" className="px-10 py-4 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-colors">
+            {status || 'Send Message'}
+          </button>
+        </div>
       </form>
     </div>
   );
